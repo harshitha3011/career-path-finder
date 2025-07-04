@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Career Test</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 2rem;
+      color: #333;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      animation: fadeIn 0.8s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1, h2, h3 {
+      text-align: center;
+      color: #009688; /* Teal Color */
+    }
+
+    select, input[type="text"], button {
+      display: block;
+      width: 100%;
+      margin: 15px 0;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+    }
+
+    .btn {
+      background-color: #009688; /* Teal Button Color */
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #00796b; /* Darker Teal on Hover */
+    }
+
+    .question {
+      margin: 1rem 0;
+    }
+
+    .result-box {
+      padding: 1rem;
+      border: 2px dashed #00796b; /* Dark Teal Border */
+      background-color: #e0f2f1;
+      border-radius: 8px;
+      animation: slideUp 0.6s ease-in;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Input fields animation */
+    input[type="text"], select {
+      animation: slideIn 0.8s ease-out;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Button animation */
+    button {
+      animation: bounce 0.6s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="step1">
+    <h1>Career Test</h1>
+    <h3>Select your current education level</h3>
+    <select id="educationLevel">
+      <option value="">-- Choose Education Level --</option>
+      <option value="10th">10th</option>
+      <option value="Intermediate">Intermediate</option>
+      <option value="BTech">BTech</option>
+      <option value="BBA">BBA</option>
+      <option value="MBA">MBA</option>
+      <option value="MTech">MTech</option>
+      <option value="MS">MS</option>
+      <option value="MCom">MCom</option>
+    </select>
+    <button class="btn" onclick="loadQuestions()">Start Test</button>
+  </div>
+
+  <div class="container" id="step2" style="display:none;">
+    <h2>Answer the following questions</h2>
+    <div id="questionsContainer"></div>
+    <button class="btn" onclick="submitTest()">Submit Test</button>
+  </div>
+
+  <div class="container" id="step3" style="display:none;">
+    <h2>Your Suggested Career</h2>
+    <div class="result-box" id="resultBox">
+      <p><strong>Recommended Path:</strong> <span id="careerResult">Loading...</span></p>
+      <p>Your answers suggest you're suited for this career based on your interests and level.</p>
+    </div>
+  </div>
+
+  <script>
+    const questionsByLevel = {
+      "10th": [
+        "Do you enjoy science experiments?",
+        "Are you interested in computers?",
+        "Do you prefer practical or theory subjects?"
+      ],
+      "Intermediate": [
+        "Do you like math or biology?",
+        "Are you planning to pursue engineering or medicine?",
+        "Do you enjoy group projects?"
+      ],
+      "BTech": [
+        "Do you enjoy coding?",
+        "Are you interested in software development?",
+        "Do you follow tech trends?"
+      ],
+      "BBA": [
+        "Do you enjoy managing events or teams?",
+        "Are you interested in business strategies?",
+        "Do you prefer marketing or finance?"
+      ],
+      "MBA": [
+        "Are you interested in leadership roles?",
+        "Do you enjoy solving business problems?",
+        "Do you follow market trends?"
+      ],
+      "MTech": [
+        "Do you want to specialize in a technical field?",
+        "Are you interested in research and development?",
+        "Do you enjoy technical writing?"
+      ],
+      "MS": [
+        "Are you planning to go abroad?",
+        "Do you enjoy academic research?",
+        "Are you interested in data science or AI?"
+      ],
+      "MCom": [
+        "Do you enjoy economics and finance?",
+        "Are you interested in taxation or auditing?",
+        "Would you consider a career in academia?"
+      ]
+    };
+
+    const careerSuggestion = {
+      "10th": "Science Stream - Engineering or Medicine",
+      "Intermediate": "Engineering or BSc",
+      "BTech": "Software Developer",
+      "BBA": "Marketing Analyst",
+      "MBA": "Business Consultant",
+      "MTech": "R&D Engineer",
+      "MS": "Data Scientist",
+      "MCom": "Chartered Accountant"
+    };
+
+    function loadQuestions() {
+      const level = document.getElementById("educationLevel").value;
+      if (!level) {
+        alert("Please select your education level.");
+        return;
+      }
+
+      document.getElementById("step1").style.display = "none";
+      document.getElementById("step2").style.display = "block";
+
+      const container = document.getElementById("questionsContainer");
+      container.innerHTML = "";
+      questionsByLevel[level].forEach((q, i) => {
+        container.innerHTML += `
+          <div class="question">
+            <label>Q${i + 1}: ${q}</label>
+            <input type="text" placeholder="Your answer..." />
+          </div>
+        `;
+      });
+    }
+
+    function submitTest() {
+      const level = document.getElementById("educationLevel").value;
+      document.getElementById("step2").style.display = "none";
+      document.getElementById("step3").style.display = "block";
+
+      document.getElementById("careerResult").innerText = careerSuggestion[level] || "Career Path Unavailable";
+    }
+  </script>
+
+</body>
+</html>

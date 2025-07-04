@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home | Career Guidance System</title>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+    }
+
+    body {
+      background: url('back.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(30, 50, 70, 0.9);
+      width: 100%;
+      padding: 20px 10px;
+      font-size: 28px;
+      font-weight: 600;
+      position: fixed;
+      top: -100px;
+      left: 0;
+      z-index: 1000;
+      animation: slideDown 1s ease-out forwards;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    @keyframes slideDown {
+      to { top: 0; }
+    }
+
+    .main-content {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 60px 30px;
+      border-radius: 12px;
+      margin-top: 140px;
+      max-width: 900px;
+      width: 90%;
+      opacity: 0;
+      transform: scale(0.95);
+      animation: fadeInScale 1.3s ease forwards;
+    }
+
+    @keyframes fadeInScale {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .main-content h1 {
+      font-size: clamp(2rem, 6vw, 3rem);
+      margin-bottom: 25px;
+      line-height: 1.2;
+    }
+
+    .main-content p {
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+      color: #f0f0f0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 30px;
+      background: #ff5722;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #e64a19;
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      position: fixed;
+      bottom: -60px;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      background: rgba(0, 0, 0, 0.75);
+      padding: 12px 10px;
+      color: #ccc;
+      animation: slideUp 1s ease 1.6s forwards;
+    }
+
+    @keyframes slideUp {
+      to { bottom: 0; }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        font-size: 22px;
+        padding: 15px;
+      }
+
+      .main-content {
+        padding: 40px 20px;
+      }
+
+      .btn {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    Career Guidance System
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <h1>Welcome to the Career Guidance System</h1>
+    <p>
+      Empowering students and professionals to make informed career choices through intelligent recommendations based on their skills, interests, and education.
+    </p>
+    <a href="index.html" class="btn">Explore Now</a>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Career Guidance System. All Rights Reserved.
+  </footer>
+
+</body>
+</html>

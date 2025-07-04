@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Student Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7fc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1f8a70;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f4f7fc;
+        }
+
+        .profile-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .profile-header {
+            text-align: center;
+            color: #1f8a70;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+
+        .profile-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .profile-info h3 {
+            font-size: 1.6rem;
+            color: #1f8a70;
+            margin-bottom: 10px;
+        }
+
+        .profile-info p {
+            font-size: 1.1rem;
+            margin: 5px 0;
+        }
+
+        .profile-pic-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-pic-container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .edit-profile {
+            background-color: #e8f5f1;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .edit-profile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .edit-profile input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        .edit-profile input[type="file"] {
+            margin-bottom: 0;
+        }
+
+        .btn-save {
+            background-color: #1f8a70;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-save:hover {
+            background-color: #145e48;
+        }
+
+        footer {
+            background-color: #1f8a70;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Student Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="test.html">Career Test</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="blog.html">Resources</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="profile-container">
+        <div class="profile-header">
+            <h2>Your Profile</h2>
+        </div>
+
+        <div class="profile-info">
+            <div>
+                <h3>Student Information</h3>
+                <p><strong>Name:</strong> <span id="profileName">John Doe</span></p>
+                <p><strong>Email:</strong> <span id="profileEmail">johndoe@example.com</span></p>
+                <p><strong>Contact:</strong> <span id="profileContact">+1234567890</span></p>
+            </div>
+            <div class="profile-pic-container">
+                <h3>Profile Picture</h3>
+                <img id="profilePic" src="https://via.placeholder.com/150" alt="Profile Picture">
+                <input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)">
+            </div>
+        </div>
+
+        <div class="edit-profile">
+            <h3>Edit Profile</h3>
+            <form onsubmit="saveProfile(); return false;">
+                <input type="text" id="name" placeholder="Full Name" value="John Doe">
+                <input type="email" id="email" placeholder="Email" value="johndoe@example.com">
+                <input type="text" id="phone" placeholder="Phone Number" value="+1234567890">
+                <button type="submit" class="btn-save">Save Changes</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Career.ly. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Function to handle image preview
+        function previewImage(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function() {
+                const output = document.getElementById('profilePic');
+                output.src = reader.result;
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Save profile to localStorage
+        function saveProfile() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const profilePic = document.getElementById('profilePic').src;
+
+            // Save to localStorage
+            localStorage.setItem('profileName', name);
+            localStorage.setItem('profileEmail', email);
+            localStorage.setItem('profileContact', phone);
+            localStorage.setItem('profilePic', profilePic);
+
+            alert('Profile updated successfully!');
+            // Reload the page to reflect changes
+            window.location.reload();
+        }
+
+        // Load profile from localStorage
+        window.onload = function() {
+            const name = localStorage.getItem('profileName');
+            const email = localStorage.getItem('profileEmail');
+            const phone = localStorage.getItem('profileContact');
+            const profilePic = localStorage.getItem('profilePic');
+
+            if (name) {
+                document.getElementById('profileName').innerText = name;
+                document.getElementById('name').value = name;
+            }
+            if (email) {
+                document.getElementById('profileEmail').innerText = email;
+                document.getElementById('email').value = email;
+            }
+            if (phone) {
+                document.getElementById('profileContact').innerText = phone;
+                document.getElementById('phone').value = phone;
+            }
+            if (profilePic) {
+                document.getElementById('profilePic').src = profilePic;
+            }
+        }
+    </script>
+</body>
+</html>

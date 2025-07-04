@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Career.ly Blog</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f6f9;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    header {
+      background-color: #1e88e5;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      border-bottom: 4px solid #1565c0;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 40px auto;
+      gap: 20px;
+      animation: slideIn 1.2s ease-out;
+    }
+
+    .main-content {
+      flex: 3;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      animation: fadeInContent 1s ease-in-out forwards;
+    }
+
+    .sidebar {
+      flex: 1;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      animation: fadeInContent 1s ease-in-out forwards;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin: 12px 0;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #1e88e5;
+      font-weight: bold;
+      font-size: 1.05rem;
+      padding: 10px;
+      display: block;
+      border-radius: 6px;
+      transition: background 0.3s, transform 0.3s ease;
+    }
+
+    .sidebar ul li a:hover {
+      background-color: #90caf9;
+      transform: scale(1.05);
+    }
+
+    .post {
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #eee;
+    }
+
+    .post h3 {
+      color: #1e88e5;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .post p {
+      color: #555;
+    }
+
+    .post a {
+      background-color: #ff5722;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+    }
+
+    .post a:hover {
+      background-color: #e64a19;
+      transform: scale(1.05);
+    }
+
+    iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes fadeInContent {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      0% { transform: translateX(-30px); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>Career.ly Blog</header>
+
+  <div class="container">
+    <div class="main-content" id="blog-content">
+      <h2>Welcome to Career.ly Blog</h2>
+      <p>Select a category or recent post to explore career guidance videos and resources.</p>
+
+      <div class="post">
+        <h3>Top 10 Careers in AI & Data Science</h3>
+        <p>Explore the fastest-growing careers in artificial intelligence and data science...</p>
+        <a href="https://youtu.be/7Q8hG0pYGn8?feature=shared" target="_blank">Watch on YouTube</a>
+      </div>
+
+      <div class="post">
+        <h3>How to Choose the Right Career After 12th</h3>
+        <p>Confused about what to do after 12th? Here’s a guide to help you...</p>
+        <a href="https://youtu.be/Y70IMmZ3osM?feature=shared" target="_blank">Watch on YouTube</a>
+      </div>
+
+      <div class="post">
+        <h3>Top Online Courses for Career Growth</h3>
+        <p>Upgrade your skills with these top-rated online courses...</p>
+        <a href="https://youtu.be/dPV6ZI8qgvI?feature=shared" target="_blank">Watch on YouTube</a>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <h2>Explore by Education Level</h2>
+      <ul>
+        <li><a href="https://www.youtube.com/playlist?list=PL10thCareer" target="_blank">Class 10th Career Guidance</a></li>
+        <li><a href="https://www.youtube.com/playlist?list=PLIntermediateCareer" target="_blank">Intermediate (12th) Options</a></li>
+        <li><a href="https://www.youtube.com/playlist?list=PLBTechCareer" target="_blank">BTech Career Paths</a></li>
+        <li><a href="https://www.youtube.com/playlist?list=PLBBACareer" target="_blank">BBA Career Tips</a></li>
+        <li><a href="https://www.youtube.com/playlist?list=PLMBACareer" target="_blank">MBA Specializations</a></li>
+        <li><a href="https://www.youtube.com/playlist?list=PLMTechCareer" target="_blank">MTech Fields</a></li>
+        <li><a href="https://www.youtube.com/playlist?list=PLMSCareer" target="_blank">MS Abroad Guidance</a></li>
+        <li><a href="https://www.youtube.com/playlist?list=PLMComCareer" target="_blank">MCom Scope</a></li>
+      </ul>
+
+      <h2>Recent Posts</h2>
+      <ul>
+        <li><a href="#" onclick="changeVideo('Best Universities for AI & ML', 'https://www.youtube.com/embed/QPyphoxnL2E')">Best Universities for AI & ML</a></li>
+        <li><a href="#" onclick="changeVideo('Tips for Cracking Job Interviews', 'https://www.youtube.com/embed/G5zArfszOXg')">Tips for Cracking Job Interviews</a></li>
+        <li><a href="#" onclick="changeVideo('Career Opportunities in Renewable Energy', 'https://www.youtube.com/embed/Fh_TKmnYpUI')">Career Opportunities in Renewable Energy</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function changeVideo(title, videoUrl) {
+      document.getElementById('blog-content').innerHTML = `
+        <h2>${title}</h2>
+        <div class="post">
+          <p>Watch the video below for insights on ${title}...</p>
+          <iframe src="${videoUrl}" allowfullscreen></iframe>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>

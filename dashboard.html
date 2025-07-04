@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7fc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        header {
+            background-color: #1f8a70;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f4f7fc;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        h2 {
+            text-align: center;
+            color: #1f8a70;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        .student-info {
+            background-color: #f0f4f5;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            animation: slideIn 1s ease-out;
+        }
+
+        .student-info h3 {
+            font-size: 1.6rem;
+            color: #1f8a70;
+            margin-bottom: 15px;
+        }
+
+        .student-info p {
+            font-size: 1.1rem;
+            margin: 5px 0;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+            animation: gridFadeIn 1s ease-in-out;
+        }
+
+        .card {
+            background-color: #e8f5f1;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            color: #1f8a70;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #1f8a70;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #145e48;
+            transform: scale(1.05);
+        }
+
+        .test-results table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            animation: fadeInTable 1s ease-in-out;
+        }
+
+        .test-results th,
+        .test-results td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .test-results th {
+            background-color: #1f8a70;
+            color: white;
+        }
+
+        footer {
+            background-color: #1f8a70;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes gridFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInTable {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Student Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="test.html">Career Test</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="blog.html">Resources</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="dashboard-container">
+        <h2>Welcome, Student!</h2>
+        
+        <div class="student-info">
+            <h3>Student Details</h3>
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Email:</strong> johndoe@example.com</p>
+            <p><strong>Contact:</strong> +1234567890</p>
+        </div>
+        
+        <div class="dashboard-grid">
+            <div class="card">
+                <h3>Your Career Test</h3>
+                <p>Complete your career test and explore suitable career options.</p>
+                <a href="test.html" class="btn">Take Test</a>
+            </div>
+            <div class="card">
+                <h3>Recommended Courses</h3>
+                <p>Check out the best courses for your career growth.</p>
+                <a href="courses.html" class="btn">View Courses</a>
+            </div>
+            <div class="card">
+                <h3>Knowledge Network</h3>
+                <p>Access study materials, guides, and expert advice.</p>
+                <a href="blog.html" class="btn">Explore</a>
+            </div>
+            <div class="card">
+                <h3>Profile</h3>
+                <p>Update your profile and track your progress.</p>
+                <a href="profile.html" class="btn">Go to Profile</a>
+            </div>
+        </div>
+
+        <div class="test-results">
+            <h3>Test History & Results</h3>
+            <table>
+                <tr>
+                    <th>Test Name</th>
+                    <th>Date Taken</th>
+                    <th>Result</th>
+                </tr>
+                <tr>
+                    <td>Career Aptitude Test</td>
+                    <td>March 15, 2025</td>
+                    <td>Software Engineer</td>
+                </tr>
+                <tr>
+                    <td>Personality Test</td>
+                    <td>February 20, 2025</td>
+                    <td>Innovative Thinker</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Career.ly. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+  

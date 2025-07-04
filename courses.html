@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore Next Education Options</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f6f9ff, #e3f2fd);
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.7s ease-in-out;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 40px;
+      font-size: 2.4rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+      padding: 20px;
+      border-radius: 14px;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .card i {
+      font-size: 24px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+      padding: 20px;
+      margin: 0;
+    }
+
+    li {
+      background: #f1f3f6;
+      margin: 10px auto;
+      padding: 14px 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 600px;
+      font-size: 16px;
+      transition: 0.3s;
+      animation: slideIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+  <script>
+    const courses = {
+      after10: [
+        "Diploma in Engineering",
+        "ITI Programs",
+        "Polytechnic Courses",
+        "Vocational Training",
+        "Intermediate (Arts, Commerce, Science)"
+      ],
+      after12: [
+        "B.Tech / Engineering",
+        "MBBS / Medical",
+        "BBA",
+        "BCA",
+        "B.Sc / B.Com / BA"
+      ],
+      afterBTech: [
+        "M.Tech",
+        "MBA",
+        "Post Graduation in Data Science / AI",
+        "Study Abroad (MS)",
+        "Government Exams"
+      ],
+      afterDegree: [
+        "MBA",
+        "M.Sc",
+        "MCA",
+        "Competitive Exams",
+        "PG Diploma Programs"
+      ],
+      afterBBA: [
+        "MBA",
+        "PG Diploma in Management",
+        "Entrepreneurship Programs",
+        "Finance / Marketing Specializations"
+      ],
+      afterMBA: [
+        "Ph.D. in Management",
+        "Post-MBA Certifications",
+        "Corporate Leadership Programs",
+        "Consulting / Startups"
+      ],
+      afterMTech: [
+        "Ph.D. in Engineering",
+        "Lectureship / UGC NET",
+        "Research & Development",
+        "Product Management"
+      ],
+      afterMS: [
+        "Ph.D.",
+        "Post-Doc Research",
+        "Global Analytics / AI Roles",
+        "Consulting Opportunities"
+      ],
+      afterMCom: [
+        "Ph.D. in Commerce",
+        "Teaching & Lecturing",
+        "Finance & Accounting Jobs",
+        "Banking & Government Exams"
+      ]
+    };
+
+    function showCourses(level) {
+      const list = document.getElementById("courseList");
+      list.innerHTML = "";
+      courses[level].forEach(course => {
+        const li = document.createElement("li");
+        li.textContent = course;
+        list.appendChild(li);
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Choose Your Current Education Level</h1>
+    <div class="grid">
+      <div class="card" onclick="showCourses('after10')">
+        <i>📘</i> After 10th
+      </div>
+      <div class="card" onclick="showCourses('after12')">
+        <i>📗</i> After 12th
+      </div>
+      <div class="card" onclick="showCourses('afterBTech')">
+        <i>💻</i> After B.Tech
+      </div>
+      <div class="card" onclick="showCourses('afterDegree')">
+        <i>🎓</i> After Degree
+      </div>
+      <div class="card" onclick="showCourses('afterBBA')">
+        <i>📊</i> After BBA
+      </div>
+      <div class="card" onclick="showCourses('afterMBA')">
+        <i>🏢</i> After MBA
+      </div>
+      <div class="card" onclick="showCourses('afterMTech')">
+        <i>⚙️</i> After M.Tech
+      </div>
+      <div class="card" onclick="showCourses('afterMS')">
+        <i>🌐</i> After MS
+      </div>
+      <div class="card" onclick="showCourses('afterMCom')">
+        <i>📈</i> After M.Com
+      </div>
+    </div>
+
+    <ul id="courseList"></ul>
+  </div>
+
+</body>
+</html>

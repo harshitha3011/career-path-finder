@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Career Guidance System</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #1d2b64, #f8cdda);
+      color: #fff;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.75);
+      padding: 20px 10px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #f8cdda;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section h1, section h2, section h3 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      max-width: 700px;
+      margin: 0 auto 25px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #fff;
+      color: #1d2b64;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      margin: 10px;
+      transition: transform 0.3s ease, background 0.3s ease;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    .btn:hover {
+      background: #f8cdda;
+      transform: scale(1.06);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .feature {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 25px;
+      border-radius: 12px;
+      width: 280px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .feature:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-top: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .features {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#why-us">Why Us?</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="logout.html">Logout</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Intelligent Career Guidance System</h1>
+      <p>Discover your strengths and find the ideal path tailored for you.</p>
+      <a href="login.html" class="btn">Get Started</a>
+    </div>
+  </section>
+
+  <!-- Why Us Section -->
+  <section id="why-us">
+    <h2>Why us?</h2>
+    <p>We help you understand your potential, choose the best career, and access essential tools to thrive.</p>
+    
+    <div class="features">
+      <div class="feature">
+        <h3>Career Prediction</h3>
+        <p>Take a personalized test and discover the best roles for your skills.</p>
+        <a href="test.html" class="btn">Start Test</a>
+      </div>
+      <div class="feature">
+        <h3>Knowledge Network</h3>
+        <p>Get curated study materials, insights, and expert blogs.</p>
+        <a href="blog.html" class="btn">Learn More</a>
+      </div>
+      <div class="feature">
+        <h3>Online Courses</h3>
+        <p>Boost your skills with recommended online courses.</p>
+        <a href="courses.html" class="btn">Browse Courses</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+<section id="about">
+  <h2>About <span style="color: #f8cdda;">path finder</span></h2>
+  <p>
+    At <strong>Career.ly</strong>, we empower students and professionals by helping them discover career paths aligned with their strengths, interests, and goals.
+    Our intelligent assessment tools and expert-curated resources provide personalized guidance at every step of your journey.
+  </p>
+  <div style="margin-top: 30px;">
+    <img src="bg.jpg" alt="Career guidance illustration showing growth and learning"
+         style="max-width: 90%; height: auto; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);" />
+  </div>
+</section>
+
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>We're here to help. Have questions or feedback? Let's talk!</p>
+    <a href="contact.html" class="btn">Contact Now</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Career.ly. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+</body>
+</html>
